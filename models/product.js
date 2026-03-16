@@ -1,0 +1,36 @@
+import mongoose from "mongoose";
+import { Schema } from "mongoose";
+
+const productSchema = new Schema({
+name: {
+    type: String,
+    required: true
+},
+description: {
+    type: String,
+    required: true
+},
+price: {
+    type: Number,
+    min: 1
+},
+category: {
+       type: String,
+    required: true
+},
+inStock: {
+    type: Boolean,
+    default: true
+},
+tags: {
+    type: [string]
+},
+createdAt: {
+ type: Date,
+ default: new Date()
+ 
+}
+})
+
+const Product = mongoose.model('Product', productSchema);
+export default Product;
