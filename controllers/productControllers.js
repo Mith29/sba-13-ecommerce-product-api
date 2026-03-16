@@ -64,13 +64,13 @@ export async function getProducts(req, res) {
         { price: {$lte: maxPrice} },
       ],
     })
-      .sort({ price: -1 })
+      .sort({ price: sortBy })
       .skip((page - 1) * limit)
       .limit(limit);
 
     console.log(products);
     res.status(200).json(products);
   } catch (error) {
-    res.status(404).json({ message: `product with ${id} is not found` });
+    res.status(400).json({ message: error.message });
   }
 }
