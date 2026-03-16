@@ -12,6 +12,7 @@ description: {
 },
 price: {
     type: Number,
+    required: true,
     min: 1
 },
 category: {
@@ -23,7 +24,7 @@ inStock: {
     default: true
 },
 tags: {
-    type: [string]
+    type: [String]
 },
 createdAt: {
  type: Date,
