@@ -1,11 +1,12 @@
 import express from 'express'
 import connectDB from './db/connection.js'
+import router from './routes/productRoutes.js';
 
 const app = express();
 
 connectDB();
 app.use(express.json());
-//app.use('/api/products',router);
+app.use('/', router);
 
 
 const port = 3000;
